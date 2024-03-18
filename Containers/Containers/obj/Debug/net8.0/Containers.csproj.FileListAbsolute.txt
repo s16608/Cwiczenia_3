@@ -1,0 +1,15 @@
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\bin\Debug\net8.0\Containers.exe
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\bin\Debug\net8.0\Containers.deps.json
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\bin\Debug\net8.0\Containers.runtimeconfig.json
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\bin\Debug\net8.0\Containers.dll
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\bin\Debug\net8.0\Containers.pdb
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\Containers.GeneratedMSBuildEditorConfig.editorconfig
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\Containers.AssemblyInfoInputs.cache
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\Containers.AssemblyInfo.cs
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\Containers.csproj.CoreCompileInputs.cache
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\Containers.sourcelink.json
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\Containers.dll
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\refint\Containers.dll
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\Containers.pdb
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\Containers.genruntimeconfig.cache
+D:\pja\lato_23_24\apbd\ćwiczenia\3\Zadanie\Cwiczenia_3\Cwiczenia_3\Containers\Containers\obj\Debug\net8.0\ref\Containers.dll
