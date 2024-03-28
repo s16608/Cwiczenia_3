@@ -2,5 +2,5 @@ namespace Containers;
 
 public enum ContainerType
 {
-    L, G, C
+    Liquid, Gas, Cool
 }

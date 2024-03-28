@@ -4,7 +4,7 @@ public class LiquidContainer : Container, IHazardNotifier
 {
     public bool IsHazardous { get; private set; }
 
-    public LiquidContainer(string type, double cargoMass, int height, double ownWeight, int depth, double maxLoad, bool isHazardous)
+    public LiquidContainer(ContainerType type, double cargoMass, int height, double ownWeight, int depth, double maxLoad, bool isHazardous)
         : base(type,cargoMass, height, ownWeight, depth, maxLoad)
     {
         IsHazardous = isHazardous;
@@ -15,7 +15,7 @@ public class LiquidContainer : Container, IHazardNotifier
         double allowedLoad = IsHazardous ? MaxLoad * 0.5 : MaxLoad * 0.9;
         if (mass > allowedLoad)
         {
-            SendHazardNotification($"Attempt to overload with {mass}kg in a {Type} container.");
+            SendHazardNotification($"Attempt to overload with {mass}kg in a {ContainerType.Gas} container.");
             throw new OverfillException($"Cannot load more than {(IsHazardous ? "50%" : "90%")} of max load for {(IsHazardous ? "hazardous" : "non-hazardous")} cargo.");
         }
         base.LoadCargo(mass);

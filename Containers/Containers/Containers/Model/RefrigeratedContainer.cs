@@ -5,7 +5,7 @@ public class RefrigeratedContainer : Container
     public string ProductType { get; private set; }
     public double MaintainedTemperature { get; private set; }
 
-    public RefrigeratedContainer(string type, double cargoMass, int height, double ownWeight, int depth, double maxLoad, string productType, double maintainedTemperature)
+    public RefrigeratedContainer(ContainerType type, double cargoMass, int height, double ownWeight, int depth, double maxLoad, string productType, double maintainedTemperature)
         : base(type,cargoMass, height, ownWeight, depth, maxLoad)
     {
         ProductType = productType;

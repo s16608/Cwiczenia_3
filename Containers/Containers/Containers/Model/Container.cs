@@ -4,16 +4,16 @@ public abstract class Container
 {
     private static int count = 1;
 
-    public String Type { get; set; }
+    ContainerType Type { get; set; }
 
-    public double CargoMass { get; set; }
+    public double CargoMass { get; set; } // masa ładunku w kg
     public int Height { get; set; }
-    public double OwnWeight { get; set; }
+    public double OwnWeight { get; set; } // waga własna (waga samego kontenera, w kg)
     public int Depth { get; set; }
     public string SerialNumber { get; set; }
-    public double MaxLoad { get; set; }
+    public double MaxLoad { get; set; } // maksymalna ładowność kontenera w kg
 
-    public Container(string type, double cargoMass, int height, double ownWeight, int depth, double maxLoad)
+    public Container(ContainerType type, double cargoMass, int height, double ownWeight, int depth, double maxLoad)
     {
         Type = type;
         CargoMass = cargoMass;
@@ -24,24 +24,25 @@ public abstract class Container
         SerialNumber = GenerateSerialNumber(type);
     }
 
-    private string GenerateSerialNumber(String type)
+    private string GenerateSerialNumber(ContainerType type)
     {
-        return "KON-" + type + "-" + count++;
+        string containerTypeAsString = type.ToString();
+        char firstLetterOfType = containerTypeAsString[0];
+        return "KON-" + firstLetterOfType + "-" + count++;
     }
 
     public void LoadCargo(double mass)
     {
-        if (mass > MaxLoad)
+        if (mass + CargoMass > MaxLoad)
         {
             throw new OverfillException("Cargo exceeds max load.");
         }
-        CargoMass = mass;
-        
-        
+
+        CargoMass += mass;
     }
 
     public abstract void UnloadCargo();
-    
+
     public override string ToString()
     {
         return $"Container Type: {this.GetType().Name}\n" +
