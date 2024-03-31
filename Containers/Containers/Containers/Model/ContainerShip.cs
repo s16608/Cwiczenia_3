@@ -33,9 +33,35 @@ public class ContainerShip
         Containers.Add(container);
     }
 
-    public bool RemoveContainer(Container container)
+    public void AddContainers(List<Container> containersToAdd)
     {
-        return Containers.Remove(container);
+        if (Containers.Count + containersToAdd.Count > MaxContainerCapacity)
+        {
+            throw new InvalidOperationException("Cannot add more containers: capacity reached.");
+        }
+    
+        double totalWeightToAdd = containersToAdd.Sum(container => container.CargoMass + container.OwnWeight);
+        if (GetCurrentTotalWeight() + totalWeightToAdd > MaxWeight * 1000)
+        {
+            throw new InvalidOperationException("Cannot add containers: weight limit exceeded.");
+        }
+        
+        foreach (var container in containersToAdd)
+        {
+            Containers.Add(container);
+        }
+    }
+
+
+    public bool RemoveContainer(string serialNumber)
+    {
+        var container = Containers.FirstOrDefault(c => c.SerialNumber == serialNumber);
+        
+        if (container != null)
+        {
+            return Containers.Remove(container);
+        }
+        return false;
     }
 
     private double GetCurrentTotalWeight()
@@ -65,16 +91,19 @@ public class ContainerShip
         }
     }
 
-    public static void TransferContainer(ContainerShip fromShip, ContainerShip toShip, Container container)
+    
+    public static void TransferContainer(ContainerShip fromShip, ContainerShip toShip, string serialNumber)
     {
-        if (fromShip.Containers.Contains(container))
+        var container = fromShip.Containers.FirstOrDefault(c => c.SerialNumber == serialNumber);
+        
+        if (container != null)
         {
-            fromShip.RemoveContainer(container);
+            fromShip.RemoveContainer(serialNumber);
             toShip.AddContainer(container);
         }
         else
         {
-            throw new InvalidOperationException("Container is not on the source ship.");
+            throw new InvalidOperationException("Container with the given serial number does not exist on the source ship.");
         }
     }
 

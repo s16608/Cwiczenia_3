@@ -4,35 +4,54 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        
+        Container liquidContainer = new LiquidContainer(ContainerType.Liquid,0, 200, 500, 500, 10000,false);
+        Container gasContainer = new GasContainer(ContainerType.Gas, 0, 300, 600, 700, 15000, 10);
+        RefrigeratedContainer refrigeratedContainer = new RefrigeratedContainer(ContainerType.Cool, 0, 600, 300, 600, 5000, "Bananas", 13.3);
 
+        liquidContainer.LoadCargo(8000);
+        gasContainer.LoadCargo(12000);
+        refrigeratedContainer.LoadCargo(4000, "Bananas", 13.3);
+
+        List<Container> containersList = new List<Container>();
+        
+        containersList.Add(liquidContainer);
+        containersList.Add(gasContainer);
+        containersList.Add(refrigeratedContainer);
+        
         ContainerShip ship = new ContainerShip(20, 10, 200);
 
-        Container liquidContainer = new LiquidContainer(ContainerType.Liquid,250, 2000, 500, 700, 10000, false);
-        Container gasContainer = new GasContainer(ContainerType.Gas, 300, 1500, 400, 700, 15000, 10);
-        RefrigeratedContainer refrigeratedContainer = new RefrigeratedContainer(ContainerType.Cool, 200, 1000, 300, 700, 5000, "Bananas", 13.3);
+        ContainerShip ship2 = new ContainerShip(20, 10, 200);
+
+        ship.AddContainers(containersList);
         
-        liquidContainer.LoadCargo(10000);
-        refrigeratedContainer.LoadCargo(100, "Banannas", 13.3);
-
-        
-        ship.AddContainer(liquidContainer);
-        ship.AddContainer(gasContainer);
-        ship.AddContainer(refrigeratedContainer);
-
-      
-        List<Container> additionalContainers = new List<Container>();
-        ship.LoadContainers(additionalContainers);
-
-       
-        ship.PrintContainerInfo("KON-C-3");
-
         ship.PrintShipInfo();
-        
-        Container replacementContainer = new RefrigeratedContainer(ContainerType.Cool,250, 1500, 350, 700, 6000, "Fish", 2);
-        ship.ReplaceContainer("KON-C-3", replacementContainer);
 
-        ship.RemoveContainer(liquidContainer);
+        ship.RemoveContainer("KON-L-1");
+        
+        Console.WriteLine("-----");
+        
+        ship.PrintShipInfo();
 
         refrigeratedContainer.UnloadCargo();
+
+        RefrigeratedContainer refrigeratedContainer2 = new RefrigeratedContainer(ContainerType.Cool, 0, 600, 300, 600, 5000, "Cocolate", 18);
+
+        Console.WriteLine("-----");
+        
+        Console.WriteLine(refrigeratedContainer2.ToString());
+        
+        ship.ReplaceContainer("KON-C-3", refrigeratedContainer2);
+        
+        Console.WriteLine("-----");
+        Console.WriteLine("Aktualna lista kontenerów na statky");
+        ship.PrintShipInfo();
+        
+        ContainerShip.TransferContainer(ship, ship2, "KON-C-4");
+        
+        Console.WriteLine("Aktualna lista kontenerów na statkach po transferze");
+        ship.PrintShipInfo();
+        Console.WriteLine("Drugi statek");
+        ship2.PrintShipInfo();
     }
 }
